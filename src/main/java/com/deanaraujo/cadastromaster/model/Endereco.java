@@ -1,11 +1,13 @@
 package com.deanaraujo.cadastromaster.model;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Endereco {
 
+    private Integer id;
     private Integer cep;
-    private String rua;
+    private String logradouro;
     private Integer numero;
     private String bairro;
     private String complemento;
@@ -16,9 +18,10 @@ public class Endereco {
     public Endereco() {
     }
 
-    public Endereco(Integer cep, String rua, Integer numero, String bairro, String complemento, String cidade, String uf) {
+    public Endereco(Integer cep, String logradouro, Integer numero, String bairro, String complemento, String cidade, String uf) {
+        this.id = null;
         this.cep = cep;
-        this.rua = rua;
+        this.logradouro = logradouro;
         this.numero = numero;
         this.bairro = bairro;
         this.complemento = complemento;
@@ -34,12 +37,12 @@ public class Endereco {
         this.cep = cep;
     }
 
-    public String getRua() {
-        return rua;
+    public String getLogradouro() {
+        return logradouro;
     }
 
-    public void setRua(String rua) {
-        this.rua = rua;
+    public void setLogradouro(String logradouro) {
+        this.logradouro = logradouro;
     }
 
     public Integer getNumero() {
@@ -80,5 +83,18 @@ public class Endereco {
 
     public void setUf(String uf) {
         this.uf = uf;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Endereco endereco = (Endereco) o;
+        return Objects.equals(id, endereco.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
     }
 }

@@ -6,22 +6,22 @@ import java.util.Objects;
 public class Cliente {
 
     private String nome;
-    private String sobrenome;
     private String cpf;
     private String rg;
     private Gender genero;
-    private Integer telefone;
+    private String telefone;
+    private Endereco endereco;
 
     public Cliente(){
     }
 
-    public Cliente(String nome, String sobrenome, String cpf, String rg, Gender genero, Integer telefone) {
+    public Cliente(String nome, String cpf, String rg, Gender genero, String telefone, Endereco endereco) {
         this.nome = nome;
-        this.sobrenome = sobrenome;
         this.cpf = cpf;
         this.rg = rg;
         this.genero = genero;
         this.telefone = telefone;
+        this.endereco = endereco;
     }
 
     public String getNome() {
@@ -30,14 +30,6 @@ public class Cliente {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public String getSobrenome() {
-        return sobrenome;
-    }
-
-    public void setSobrenome(String sobrenome) {
-        this.sobrenome = sobrenome;
     }
 
     public String getCpf() {
@@ -64,12 +56,20 @@ public class Cliente {
         this.genero = genero;
     }
 
-    public Integer getTelefone() {
+    public String getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(Integer telefone) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
+    }
+
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
     }
 
     @Override
