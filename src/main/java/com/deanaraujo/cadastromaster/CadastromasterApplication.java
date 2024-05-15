@@ -9,19 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
-@RestController
 public class CadastromasterApplication {
-
-	@Value("${application.name}")
-	private String applicationName;
-
-	@GetMapping("/teste")
-	public String teste(){
-		return applicationName;
-	}
-
 	public static void main(String[] args) {
 		SpringApplication.run(CadastromasterApplication.class, args);
 	}
-
 }

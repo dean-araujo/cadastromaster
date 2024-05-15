@@ -1,37 +1,23 @@
 package com.deanaraujo.cadastromaster.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
-import java.util.List;
 import java.util.Objects;
 
 @Entity
 public class Cliente {
 
-    private String nome;
-
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private String cpf;
+
+    private String nome;
     private String rg;
     private Gender genero;
     private String telefone;
+
+    @ManyToOne
     private Endereco endereco;
-
-    public Cliente(){
-    }
-
-    public Cliente(String nome, String cpf, String rg, Gender genero, String telefone, Endereco endereco) {
-        this.nome = nome;
-        this.cpf = cpf;
-        this.rg = rg;
-        this.genero = genero;
-        this.telefone = telefone;
-        this.endereco = endereco;
-    }
 
     public String getNome() {
         return nome;

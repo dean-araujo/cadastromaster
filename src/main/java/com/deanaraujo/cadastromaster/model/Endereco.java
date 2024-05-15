@@ -1,9 +1,6 @@
 package com.deanaraujo.cadastromaster.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.List;
 import java.util.Objects;
@@ -12,7 +9,7 @@ import java.util.Objects;
 public class Endereco {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
     private Integer cep;
@@ -22,21 +19,9 @@ public class Endereco {
     private String complemento;
     private String cidade;
     private String uf;
+
+    @OneToMany
     private List<Cliente> clientes;
-
-    public Endereco() {
-    }
-
-    public Endereco(Integer cep, String logradouro, Integer numero, String bairro, String complemento, String cidade, String uf) {
-        this.id = null;
-        this.cep = cep;
-        this.logradouro = logradouro;
-        this.numero = numero;
-        this.bairro = bairro;
-        this.complemento = complemento;
-        this.cidade = cidade;
-        this.uf = uf;
-    }
 
     public Integer getCep() {
         return cep;
@@ -92,6 +77,14 @@ public class Endereco {
 
     public void setUf(String uf) {
         this.uf = uf;
+    }
+
+    public List<Cliente> getClientes() {
+        return clientes;
+    }
+
+    public void setClientes(List<Cliente> clientes) {
+        this.clientes = clientes;
     }
 
     @Override
